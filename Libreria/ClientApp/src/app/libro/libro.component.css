@@ -1,0 +1,29 @@
+button {
+
+    border-radius: 15px;
+    font-size: 20px;
+    background-color: rgba(83, 16, 16, 0.424);
+    color:black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+input{
+    margin: 4px 2px;
+}
+
+p{
+    color: blue;
+    text-align: center;
+    font-size: 44px;
+}
+
+.nombreautor{
+    color: rgb(116, 212, 38);
+}

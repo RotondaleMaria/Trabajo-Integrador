@@ -1,0 +1,42 @@
+<p>Libro nuevo</p>
+
+<form [formGroup]="formLibro" (ngSubmit)= "GuardarLibro()" autocomplete="off">
+
+        <fieldset>
+<div class="form-group">
+        <label for="id" class="col-md-2-control-label">Id</label>
+        <div class="col-md-8"></div>
+        <input type="number" formControlName="id" id="id"/>
+</div>
+        
+<div class="form-group">
+        <label for="titulo" class="col-md-2-control-label">Titulo  </label>
+        <div class="col-md-8"></div>
+        <input type="text" formControlName="titulo" id="titulo"/>
+        <span *ngIf="formLibro.get('titulo').errors?.required"> El campo es requerido</span>
+</div>
+<div class="form-group">
+        <label for="autor" class="col-md-2-control-label">Autor</label>
+        <div class="col-md-8"></div>
+        <input type="text" formControlName="autor" id="autor"/>
+        <div class="col-md-8"></div>
+</div>
+<div class="form-group">
+        <label for="edirotial" class="col-md-2-control-label">Editorial</label>
+        <div class="col-md-8"></div>
+        <input type="text" formControlName="editorial" id="editorial"/>
+</div>
+<div class="form-group">
+        <label for="genero">Genero</label>
+        <div class="col-md-8"></div>
+        <select id="genero" name="Genero">
+        <option value="novela">Novela</option>
+        <option value="drama">Drama</option>
+        <option value="fantasia romantica">Fantasía romántica</option>
+        <option value="ficcion">Ficcion</option>
+        <option value="literatura fantastica">Literatura fantástica</option>
+        </select>
+</div>
+        <button class="btn btn-primary" [disabled]="!formLibro.valid" type="submit">Guardar</button>
+        </fieldset>
+</form>

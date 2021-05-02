@@ -1,0 +1,50 @@
+<p>Listado de Librerias</p>
+
+<button [routerLink]='["/libreria-nuevo"]'class="btn btn-primary">Crear Libreria</button>
+
+<div class="row">
+    <input class="form-control" [ngModel]="campobuscado"name="campobuscado"/>
+</div>
+
+<div>
+    <button (click)="BuscarLibreria()" class="btn btn-">Buscar</button>
+</div>
+
+<p *ngIf ="!(ListadoLibreria.length>0)"> No hay datos para mostrar de librerias. </p>
+
+
+<table class="table table-striped" *ngIf="ListadoLibreria.length > 0">
+    
+    <thead class="table-header">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Horario</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let libreria of ListadoLibreria">
+            <td>{{libreria.id}}</td>
+            <td>{{libreria.nombre | uppercase}}</td>
+            <td>{{libreria.direccion | lowercase}}</td>
+            <td>{{libreria.telefono}}</td>
+            <td>{{libreria.horario}}</td>
+            <td>
+                <button class="btn btn-danger"(click)="Borrar(libreria.id)">Borrar</button>
+            </td>
+            <td>
+                <button class="btn btn-warning"(click)="verificarEstado(libreria.id)">Descuento</button>
+            </td>
+            <td>
+                <button class="btn btn-info"(click)="EstaCerrado(libreria.horario)">Estado</button>
+            </td>
+            <td>
+                <button class="btn btn-success"[routerLink]='["/libreria-editar/" + libreria.id]'>Editar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
