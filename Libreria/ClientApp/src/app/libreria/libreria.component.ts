@@ -12,6 +12,7 @@ export class LibreriaComponent implements OnInit {
   public ListadoLibreria: Libreria[];
   public UnaLibreria:Libreria;
   public campobuscado:string;
+  public mensajeingreso:string="Ingrese los datos a buscar";
 
   constructor(private servicioLibreria:LibreriaService) { }
 
@@ -21,6 +22,7 @@ export class LibreriaComponent implements OnInit {
   }
 
   Borrar(libreriaId:number) {
+    
     this.servicioLibreria.BorrarLibreria(libreriaId);
     this.ListadoLibreria= this.servicioLibreria.MostrarTodos();
   }
@@ -49,10 +51,13 @@ export class LibreriaComponent implements OnInit {
       alert('Esta abierto')
     }
     }
-
+  
     BuscarLibreria(){
+      
       this.ListadoLibreria=this.servicioLibreria.BuscarPorNombre(this.campobuscado);
+    }
 
+    BuscarPorNombre(libreriaId){
 
     }
 }

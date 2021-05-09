@@ -10,12 +10,12 @@ constructor() { }
 
 public ListadoLibreria:Libreria[]=[
 
-        {id:1 ,nombre: "Cuspide", direccion: " Juncal 3091", telefono:48215566, horario: (" 9 a 18"), descuento: true},
-        {id:2 ,nombre: "El Atico Azul", direccion: "Bustamante 810", telefono:42941856, horario: "11 a 21",descuento: false},
-        {id:3 ,nombre: "El Buho", direccion: "Moreno 5236", telefono:41269985, horario: "10 a 18",descuento: true},
-        {id:4 ,nombre: "El Aprendiz", direccion: "Rodriguez Peña 3091", telefono:48559633, horario: "11 a 21",descuento: false},
-        {id:5 ,nombre: "Mundo Creativo", direccion: "Mitre 1502", telefono:48277626, horario: "9 a 18",descuento: true},
-        {id:6 ,nombre: "La Torre de Libros", direccion: " Arenales 702", telefono:48222022, horario: " 9 a 18",descuento: false}
+        {id:0 ,nombre: "Cuspide", direccion: " Juncal 3091", telefono:48215566, horario: (" 9 a 18"), descuento: true},
+        {id:1 ,nombre: "El Atico Azul", direccion: "Bustamante 810", telefono:42941856, horario: "11 a 21",descuento: false},
+        {id:2 ,nombre: "El Buho", direccion: "Moreno 5236", telefono:41269985, horario: "10 a 18",descuento: true},
+        {id:3 ,nombre: "El Aprendiz", direccion: "Rodriguez Peña 3091", telefono:48559633, horario: "11 a 21",descuento: false},
+        {id:4 ,nombre: "Mundo Creativo", direccion: "Mitre 1502", telefono:48277626, horario: "9 a 18",descuento: true},
+        {id:5 ,nombre: "La Torre de Libros", direccion: " Arenales 702", telefono:48222022, horario: " 9 a 18",descuento: false}
     
       ];
 
@@ -29,12 +29,11 @@ MostrarTodos():Libreria[]{
 
   }
 BorrarLibreria(libId:number): any {
-    this.ListadoLibreria= JSON.parse(localStorage.getItem('libreria_db'));
+    // this.ListadoLibreria= JSON.parse(localStorage.getItem('libreria_db'));
     this.ListadoLibreria.forEach((value,index) =>{
       if (value.id == libId)
         this.ListadoLibreria.splice(index,1)
     });
-  
     return 0;
   }
 

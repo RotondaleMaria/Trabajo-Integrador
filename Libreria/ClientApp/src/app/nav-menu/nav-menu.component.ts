@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import{environment} from './../../environments/environment';
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class NavMenuComponent {
   isExpanded = false;
+  imagenruta = environment.rutalogo;
 
   collapse() {
     this.isExpanded = false;

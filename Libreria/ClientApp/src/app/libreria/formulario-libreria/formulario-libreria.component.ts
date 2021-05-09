@@ -25,8 +25,6 @@ export class FormularioLibreriaComponent implements OnInit {
 
   ngOnInit() {
 
-    //this.LibreriaSrv.Inicializar();
-
     this.formLibreria= this.fb.group({
       nombre:'',
       direccion:'',
@@ -63,12 +61,13 @@ export class FormularioLibreriaComponent implements OnInit {
       }
     }
   );
-}
+  }
 
   GuardarFormulario() {
     
     let libreria: Libreria=Object.assign({}, this.formLibreria.value);
-    if (isNaN(this.libreriaId)){
+    libreria.id= +this.libreriaId;
+    // if (isNaN(this.libreriaId)){
 
       if(libreria.id>0){
         //editar
@@ -84,4 +83,3 @@ export class FormularioLibreriaComponent implements OnInit {
   
   }
 
-}

@@ -1,27 +1,25 @@
-<p>Listado de Librerias</p>
 
-<button [routerLink]='["/libreria-nuevo"]'class="btn btn-primary">Crear Libreria</button>
+<h1>Listado de Librerias</h1>
 
-<div class="row">
-    <input class="form-control" [ngModel]="campobuscado"name="campobuscado"/>
+<div class="form-group">
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" [ngModel]="campobuscado"name="campobuscado" type="search" placeholder="Buscar libreria" aria-label="Buscar">
+        <button (click)="BuscarLibreria()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
 </div>
 
-<div>
-    <button (click)="BuscarLibreria()" class="btn btn-">Buscar</button>
-</div>
-
-<p *ngIf ="!(ListadoLibreria.length>0)"> No hay datos para mostrar de librerias. </p>
-
-
-<table class="table table-striped" *ngIf="ListadoLibreria.length > 0">
+<table class="table table-bordered" *ngIf="ListadoLibreria.length > 0">
     
-    <thead class="table-header">
+    <thead class="table table-bordered">
         <tr>
             <th>Id</th>
             <th>Nombre</th>
             <th>Direccion</th>
             <th>Telefono</th>
             <th>Horario</th>
+            <th></th>
+            <th></th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -47,4 +45,11 @@
             </td>
         </tr>
     </tbody>
+    
 </table>
+
+<div class="form-group" >
+    <button [routerLink]='["/libreria-nuevo"]' type="submit" class="btn btn-primary form-control" [disabled]="!formLibreria.valid">Crear Libreria</button>
+</div>
+    
+    <p *ngIf ="!(ListadoLibreria.length>0)"> No hay datos para mostrar de librerias. </p>

@@ -11,8 +11,8 @@ export class LibroComponent implements OnInit {
 
   ListadoLibro: Libro[];
   Titulo:string="Listado de libros";
-  ingreso:string= "ingresar texto en este input";
-  textoingresado:string;
+  // ingreso:string= "ingresar texto en este input";
+  // textoingresado:string;
 
   
 
@@ -22,6 +22,7 @@ export class LibroComponent implements OnInit {
     this.ListadoLibro=this.servicioLibro.MostrarTodos();
   }
 
+  //muestra el mensaje si tiene o no stock.
   MostrarMensaje(librId:number){
     var libro:Libro;
     libro = this.servicioLibro.Buscar(librId);
@@ -32,5 +33,10 @@ export class LibroComponent implements OnInit {
       alert("El libro no tiene stock");
     }
   }
+
+  Editar(libro:Libro) {
+    var indice= this.ListadoLibro.findIndex(x=> x.id === libro.id);
+    this.ListadoLibro[indice]=libro;
+    }
 
 }

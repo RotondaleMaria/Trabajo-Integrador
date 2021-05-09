@@ -3,7 +3,10 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">Libreria</a>
+      <a class="navbar-brand" [routerLink]="['/']">
+              <img [src]="imagenruta" alt="" width="40" height="40" class="d-inline-block align-text-top">
+              Proyecto Integrador
+            </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -20,31 +23,20 @@
         [ngClass]="{ show: isExpanded }"
       >
         <ul class="navbar-nav flex-grow">
-          <li
-            class="nav-item"
-            [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
-          </li>
+          
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']"
-              >Counter</a
-            >
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
-              >Fetch data</a
-            >
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/libreria']"
+            <a class="navbar-brand" [routerLink]="['/libreria']"
               >Libreria</a
             >
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/libro']"
+            <a class="navbar-brand" [routerLink]="['/libro']"
               >Libro</a
+            >
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="navbar-brand" [routerLink]="['/grilla-libreria']"
+              >Grilla Libreria</a
             >
           </li>
         </ul>

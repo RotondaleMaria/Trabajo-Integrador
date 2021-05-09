@@ -1,19 +1,19 @@
 <p>{{Titulo}}</p>
 
-<button [routerLink]='["/libro-nuevo"]'class="btn btn-primary">Nuevo</button>
-
-<input [placeholder]="ingreso" type="text"[(ngModel)]= "textoingresado" class="form-control"/>
-{{textoingresado}}
-
-<div>
-    <button (click)="BuscarLibro()" class="btn btn-">Buscar</button>
+<div class="form-group">
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" [ngModel]="campobuscado"name="campobuscado" type="search" placeholder="Buscar libro" aria-label="Buscar">
+        <button (click)="BuscarLibro()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
 </div>
 
-<p *ngIf="!(ListadoLibro.length>0)">La lista de libros esta vacia.</p>
+<div class="form-group" >
+    <button [routerLink]='["/libro-nuevo"]' type="submit" class="btn btn-primary form-control" [disabled]="!formLibreria.valid">Nuevo</button>
+</div>
 
-<table class="table table-striped" *ngIf="ListadoLibro.length>0">
+<table class="table table-bordered" *ngIf="ListadoLibro.length>0">
 
-    <thead class="table-header"> 
+    <thead class="table table-bordered"> 
         <tr>  
         <th>Id</th>
         <th>Titulo</th>
