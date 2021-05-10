@@ -53,8 +53,8 @@ export class LibreriaComponent implements OnInit {
     }
   
     BuscarLibreria(){
-      
       this.ListadoLibreria=this.servicioLibreria.BuscarPorNombre(this.campobuscado);
+      console.log(this.ListadoLibreria);
     }
 
     BuscarPorNombre(libreriaId){

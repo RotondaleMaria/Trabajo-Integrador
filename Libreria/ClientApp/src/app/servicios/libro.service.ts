@@ -43,4 +43,17 @@ public ListadoLibro : Libro[]=[
     
     }
 
+    BuscarPorTitulo(titu:string):Libro[]{
+      return this.ListadoLibro.filter(x=> x.titulo.toLowerCase() === titu.toLowerCase());
+  }
+
+  BorrarLibro(librId:number): any {
+    
+    this.ListadoLibro.forEach((value,index) =>{
+      if (value.id == librId)
+        this.ListadoLibro.splice(index,1)
+    });
+    return 0;
+  }
+
 }

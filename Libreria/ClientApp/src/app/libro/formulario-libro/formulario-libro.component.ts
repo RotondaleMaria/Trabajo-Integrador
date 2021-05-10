@@ -38,6 +38,7 @@ export class FormularioLibroComponent implements OnInit {
         return;
       }
       else{
+        debugger
         //es numerico
         var libro = this.LibroSrv.Buscar(this.libroId);
         this.tit="Modificar los datos del libro: " + libro.titulo + "" + libro.autor;
@@ -46,14 +47,15 @@ export class FormularioLibroComponent implements OnInit {
           titulo:libro.titulo,
           autor:libro.autor,
           editorial:libro.editorial,
-          genero:libro.genero
+          genero:libro.editorial,
         });
+        
       }
     }
   );
 }
 
-  GuardarFormulario() {
+  GuardarLibro() {
     
     let libro: Libro=Object.assign({}, this.formLibro.value);
     libro.id= +this.libroId;
@@ -63,17 +65,12 @@ export class FormularioLibroComponent implements OnInit {
         this.LibroSrv.Editar(libro);
       }
       else{
-        //crear
+        //nuevo
         libro.id = this.LibroSrv.CrearId()
         this.LibroSrv.Crear(libro);
       }
       this.router.navigate(["/libro"])
     }
-
-    // GuardarFormulario(){
-    //   let libro: Libro= Object.assign({}, this.formLibro.value);
-    //   console.log(libro.titulo);
-    // }
   
   }
 

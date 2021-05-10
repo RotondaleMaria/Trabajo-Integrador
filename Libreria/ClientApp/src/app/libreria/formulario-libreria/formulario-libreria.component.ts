@@ -56,7 +56,7 @@ export class FormularioLibreriaComponent implements OnInit {
           nombre:libreria.nombre,
           direccion:libreria.direccion,
           telefono:libreria.telefono,
-          horario:libreria.horario,
+          horario:libreria.horario ,
         });
       }
     }

@@ -29,7 +29,7 @@ MostrarTodos():Libreria[]{
 
   }
 BorrarLibreria(libId:number): any {
-    // this.ListadoLibreria= JSON.parse(localStorage.getItem('libreria_db'));
+    
     this.ListadoLibreria.forEach((value,index) =>{
       if (value.id == libId)
         this.ListadoLibreria.splice(index,1)
@@ -43,8 +43,9 @@ Buscar(libId:number):Libreria{
 }
 
   BuscarPorNombre(nom:string):Libreria[]{
-    return this.ListadoLibreria.filter(x=> x.nombre === nom);
+    return this.ListadoLibreria.filter(x=> x.nombre.toLowerCase() === nom.toLowerCase());
 }
+
 
   Crear(libreria:Libreria) {
     this.ListadoLibreria.unshift(libreria);

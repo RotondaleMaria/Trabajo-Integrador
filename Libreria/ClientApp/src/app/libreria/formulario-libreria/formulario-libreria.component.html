@@ -42,7 +42,7 @@
                 required minlength="8"
                 required maxlength="8" 
             />
-            <span *ngIf="formLibreria.get('telefono').errors?.required">
+            <span *ngIf="formLibreria.get('telefono').errors?.required" [ngStyle]="{'color':'red','background-color':'#ff0','text-align':'center'}">
                 el campo es requerido
             </span>
             </div>
@@ -52,8 +52,8 @@
             <label for="horario" class="col-sm-2 control-label">Horario</label>
             <div class="col-md-8">
             <select formControlName="horario" class="form-control">
-                <option [ngValue]="null" value="0">---Seleccionar el horario---</option>
-                <option *ngFor="let horario of horarios" [value]="horario.id">{{ horario.descripcion }}</option>
+                <option value="">---Seleccionar el horario---</option>
+                <option *ngFor="let horario of horarios" [value]="horario.descripcion">{{ horario.descripcion }}</option>
             </select>    
             </div>
         </div>

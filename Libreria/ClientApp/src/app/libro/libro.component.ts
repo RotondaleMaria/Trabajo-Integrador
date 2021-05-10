@@ -6,13 +6,18 @@ import {LibroService} from '../servicios/libro.service';
   selector: 'app-libro',
   templateUrl: './libro.component.html',
   styleUrls: ['./libro.component.css']
+  
 })
 export class LibroComponent implements OnInit {
 
-  ListadoLibro: Libro[];
-  Titulo:string="Listado de libros";
+  public ListadoLibro: Libro[];
+  public Titulo:string="Listado de libros";
+  public campobuscado:string;
+  page:number= 1;
+  
+  
   // ingreso:string= "ingresar texto en este input";
-  // textoingresado:string;
+  //textoingresado:string;
 
   
 
@@ -37,6 +42,21 @@ export class LibroComponent implements OnInit {
   Editar(libro:Libro) {
     var indice= this.ListadoLibro.findIndex(x=> x.id === libro.id);
     this.ListadoLibro[indice]=libro;
+    }
+
+    BuscarLibro(){
+      this.ListadoLibro=this.servicioLibro.BuscarPorTitulo(this.campobuscado);
+      console.log(this.ListadoLibro);
+    }
+
+    BuscarPorTitulo(libroId){
+
+    }
+
+    Borrar(libroId:number) {
+    
+      this.servicioLibro.BorrarLibro(libroId);
+      this.ListadoLibro= this.servicioLibro.MostrarTodos();
     }
 
 }

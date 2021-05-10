@@ -14,7 +14,7 @@ import { FormularioLibreriaComponent } from './libreria/formulario-libreria/form
 import { FormularioLibroComponent } from './libro/formulario-libro/formulario-libro.component';
 import { GrillalibreriaComponent } from './libreria/grillalibreria.component';
 import { LibreriacardComponent } from './libreria/libreriacard.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -29,10 +29,12 @@ import { LibreriacardComponent } from './libreria/libreriacard.component';
     FormularioLibroComponent,
     GrillalibreriaComponent,
     LibreriacardComponent,
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
+    NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
