@@ -37,6 +37,7 @@ public ListadoLibro : Libro[]=[
   }
 
   Editar(libro:Libro) {
+    
     console.log("Modificar libro: " + libro.titulo + " " + libro.autor);
     var indice= this.ListadoLibro.findIndex(x=> x.id === libro.id);
     this.ListadoLibro[indice]=libro;

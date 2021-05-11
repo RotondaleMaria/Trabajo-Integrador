@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Libro} from '../../modelos/libro';
+import {Libro, genero} from '../../modelos/libro';
 import {LibroService} from '../../servicios/libro.service';
 import {ActivatedRoute,Router} from '@angular/router'
 
@@ -13,6 +13,7 @@ export class FormularioLibroComponent implements OnInit {
   formLibro:FormGroup;
   libroId:number;
   tit:string;
+  generos:genero[];
 
   constructor(private fb: FormBuilder,
               private LibroSrv:LibroService,
@@ -26,6 +27,15 @@ export class FormularioLibroComponent implements OnInit {
         editorial:'',
         genero:'',
       });
+
+      this.generos=[
+        {id:1, descripcion: "Novela"},
+        {id:2, descripcion: "Drama"},
+        {id:3, descripcion: "Fantasia Romántica"},
+        {id:4, descripcion: "Ficcion"},
+        {id:5, descripcion: "Literatura Fantástica"},
+        {id:6, descripcion: "Otros"},
+      ];
   
 
     this.activatedRoute.params.subscribe(
@@ -47,7 +57,7 @@ export class FormularioLibroComponent implements OnInit {
           titulo:libro.titulo,
           autor:libro.autor,
           editorial:libro.editorial,
-          genero:libro.editorial,
+          genero:libro.genero,
         });
         
       }
@@ -59,7 +69,6 @@ export class FormularioLibroComponent implements OnInit {
     
     let libro: Libro=Object.assign({}, this.formLibro.value);
     libro.id= +this.libroId;
-
       if(libro.id>0){
         //editar
         this.LibroSrv.Editar(libro);

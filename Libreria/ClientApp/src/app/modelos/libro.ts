@@ -7,3 +7,8 @@ export interface Libro {
     genero:string;
     stock:boolean;
 }
+
+export interface genero{
+    id:number;
+    descripcion: string;
+}

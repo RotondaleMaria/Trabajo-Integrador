@@ -12,7 +12,7 @@ export class LibreriaComponent implements OnInit {
   public ListadoLibreria: Libreria[];
   public UnaLibreria:Libreria;
   public campobuscado:string;
-  public mensajeingreso:string="Ingrese los datos a buscar";
+  
 
   constructor(private servicioLibreria:LibreriaService) { }
 

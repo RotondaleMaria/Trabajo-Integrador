@@ -16,10 +16,6 @@ export class LibroComponent implements OnInit {
   page:number= 1;
   
   
-  // ingreso:string= "ingresar texto en este input";
-  //textoingresado:string;
-
-  
 
   constructor(private servicioLibro:LibroService) { }
 
@@ -38,11 +34,6 @@ export class LibroComponent implements OnInit {
       alert("El libro no tiene stock");
     }
   }
-
-  Editar(libro:Libro) {
-    var indice= this.ListadoLibro.findIndex(x=> x.id === libro.id);
-    this.ListadoLibro[indice]=libro;
-    }
 
     BuscarLibro(){
       this.ListadoLibro=this.servicioLibro.BuscarPorTitulo(this.campobuscado);
